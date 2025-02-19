@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+        }
+        .signup-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+        }
+        .signup-container h1 {
+            color: #1877f2;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .signup-container h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .dob {
+            display: flex;
+            justify-content: space-between;
+        }
+        .dob select {
+            width: 32%;
+        }
+        .gender-options {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .gender-options label {
+            display: flex;
+            align-items: center;
+        }
+        button {
+            background: #42b72a;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #36a420;
+        }
+        .login-link {
+            display: block;
+            margin-top: 10px;
+            color: #1877f2;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>facebook</h1>
+        <h2>Create a new account</h2>
+        <p>It's quick and easy.</p>
+        <form>
+            <input type="text" placeholder="First name" required>
+            <input type="text" placeholder="Surname" required>
+            <label>Date of birth</label>
+            <div class="dob">
+                <select id="day"></select>
+                <select id="month"></select>
+                <select id="year"></select>
+            </div>
+            <label>Gender</label>
+            <div class="gender-options">
+                <label><input type="radio" name="gender"> Female</label>
+                <label><input type="radio" name="gender"> Male</label>
+                <label><input type="radio" name="gender"> Custom</label>
+            </div>
+            <input type="email" placeholder="Mobile number or email address" required>
+            <input type="password" placeholder="New password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <a href="#" class="login-link">Already have an account?</a>
+    </div>
+    <script>
+        const daySelect = document.getElementById("day");
+        const monthSelect = document.getElementById("month");
+        const yearSelect = document.getElementById("year");
+
+        for (let i = 1; i <= 31; i++) {
+            let option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            daySelect.appendChild(option);
+        }
+
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        months.forEach((month, index) => {
+            let option = document.createElement("option");
+            option.value = index + 1;
+            option.textContent = month;
+            monthSelect.appendChild(option);
+        });
+
+        const currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= 1900; i--) {
+            let option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            yearSelect.appendChild(option);
+        }
+    </script>
+</body>
+</html>
